@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Clipboarded
+
+  Created by Leonardo Cardoso on 24/12/2016.
+  Copyright © 2016 leocardz.com. All rights reserved.
+*/
+
+TapToPaste="Tap anywhere to paste the image on clipboard";
+ReadingClipboard="Reading clipboard";
+ImageSaved="Image saved to Photos";
+DataNotImage="Data was not an image";
