@@ -17,7 +17,7 @@ import SnapKit
     import RxCocoa
 #endif
 
-class PasteView: UIView {
+class PasteView: UIControl {
     
     // MARK: - Properties
     var initialLabel: UILabel?

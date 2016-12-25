@@ -35,6 +35,22 @@ class PasteViewController: BaseViewController {
     // MARK: - ViewModel Configuration
     private func configureBindings(viewModel: PasteViewModelType) {
         
+        guard
+            let pasteView: PasteView = self.pasteView,
+            let initialLabel: UILabel = pasteView.initialLabel,
+            let readingLabel: UILabel = pasteView.readingLabel,
+            let savedLabel: UILabel = pasteView.savedLabel,
+            let errorLabel: UILabel = pasteView.errorLabel
+            else { return }
+        
+        // Input
+        pasteView.rx.controlEvent(.touchUpInside).bindNext({ viewModel.tapAction.onNext() }).addDisposableTo(self.disposeBag)
+        
+        // Output
+        viewModel.tapTextHidden.asObservable().map({ $0 }).bindTo(initialLabel.rx.isHidden).addDisposableTo(self.disposeBag)
+        viewModel.readTextHidden.asObservable().map({ $0 }).bindTo(readingLabel.rx.isHidden).addDisposableTo(self.disposeBag)
+        viewModel.saveTextHidden.asObservable().map({ $0 }).bindTo(savedLabel.rx.isHidden).addDisposableTo(self.disposeBag)
+        viewModel.errorTextHidden.asObservable().map({ $0 }).bindTo(errorLabel.rx.isHidden).addDisposableTo(self.disposeBag)
         
     }
     

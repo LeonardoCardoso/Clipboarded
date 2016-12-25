@@ -24,6 +24,7 @@
 		985599171E0F21E000789A00 /* DimensionsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599121E0F21E000789A00 /* DimensionsType.swift */; };
 		985599191E0F257100789A00 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599181E0F257100789A00 /* BaseViewController.swift */; };
 		9855991B1E0F2EF000789A00 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855991A1E0F2EF000789A00 /* Device.swift */; };
+		98654CA01E1065C300A2A010 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98654C9F1E1065C300A2A010 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		985599121E0F21E000789A00 /* DimensionsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionsType.swift; sourceTree = "<group>"; };
 		985599181E0F257100789A00 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9855991A1E0F2EF000789A00 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		98654C9F1E1065C300A2A010 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		A36A6E6477114CD2E4581F37 /* Pods-Clipboarded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboarded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clipboarded/Pods-Clipboarded.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			children = (
 				985599081E0F1E3B00789A00 /* Dimensions */,
 				985599071E0F1DE400789A00 /* Extensions */,
+				98654C9F1E1065C300A2A010 /* Flow.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				985599141E0F21E000789A00 /* Dimensions5.swift in Sources */,
 				9855990A1E0F1E4A00789A00 /* UIColorExtension.swift in Sources */,
 				985599191E0F257100789A00 /* BaseViewController.swift in Sources */,
+				98654CA01E1065C300A2A010 /* Flow.swift in Sources */,
 				980809281E0F11610092FB9F /* PasteViewController.swift in Sources */,
 				980809261E0F11610092FB9F /* AppDelegate.swift in Sources */,
 				9855990D1E0F21D500789A00 /* R.generated.swift in Sources */,
