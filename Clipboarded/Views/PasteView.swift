@@ -20,6 +20,7 @@ import SnapKit
 class PasteView: UIControl {
     
     // MARK: - Properties
+    var imageView: UIImageView?
     var initialLabel: UILabel?
     var readingLabel: UILabel?
     var savedLabel: UILabel?
@@ -34,6 +35,7 @@ class PasteView: UIControl {
         
         self.configureSubviews()
         
+        if let view: UIImageView = self.imageView { self.addSubview(view) }
         if let view: UILabel = self.initialLabel { self.addSubview(view) }
         if let view: UILabel = self.readingLabel { self.addSubview(view) }
         if let view: UILabel = self.savedLabel { self.addSubview(view) }
@@ -48,6 +50,12 @@ class PasteView: UIControl {
     // MARK: - Functions
     // Configure Subviews
     func configureSubviews() {
+        
+        self.imageView = UIImageView().then {
+            
+            $0.backgroundColor = .clear
+            
+        }
         
         self.initialLabel = UILabel().then {
             
@@ -105,6 +113,13 @@ class PasteView: UIControl {
             make.width.equalToSuperview()
             make.height.equalToSuperview()
             
+        }
+        
+        self.imageView?.snp.makeConstraints { (make) -> Void in
+            
+            make.center.equalToSuperview()
+            make.width.equalToSuperview().inset(50)
+        
         }
         
         self.initialLabel?.snp.makeConstraints { (make) -> Void in self.commonConstraints(make) }

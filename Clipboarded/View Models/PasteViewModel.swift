@@ -29,7 +29,7 @@ protocol PasteViewModelType {
     
 }
 
-class PasteViewModel: PasteViewModelType {
+class PasteViewModel: NSObject, PasteViewModelType {
     
     // MARK: - Properties
     private var processing: Bool = false
@@ -48,37 +48,41 @@ class PasteViewModel: PasteViewModelType {
     var deliverPicture: PublishSubject<UIImage?> = PublishSubject<UIImage?>()
     
     // MARK: - Initializers
-    required init() {
+    required override init() {
+        
+        super.init()
         
         self.tapAction
             .subscribe(
-                onNext: { [weak self] _ in
+                onNext: { [] _ in
                     
-                    if let p: Bool = self?.processing, !p {
+                    if !self.processing {
                         
-                        self?.processing = true
+                        self.processing = true
                         
-                        self?.show(tap: false, read: true, save: false, error: false)
+                        self.show(tap: false, read: true, save: false, error: false)
                         
-                        Flow.delay(for: 1.0) {
+                        Flow.async {
                             
+                            let pasteboard: UIPasteboard = UIPasteboard.general
                             
-                            self?.show(tap: false, read: false, save: true, error: false)
-                            
-                            //                self?.deliverPicture.onNext(nil)
-                            
-                            self?.processing = false
+                            if let image: UIImage = pasteboard.image {
+                                
+                                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                                
+                            } else { self.error() }
                             
                         }
                         
                     }
                     
-                }
+            }
             ).addDisposableTo(self.disposeBag)
         
     }
     
     // MARK: - Functions
+    // Show and hide messages
     func show(tap: Bool, read: Bool, save: Bool, error: Bool) {
         
         self.tapTextHidden.value = !tap
@@ -86,6 +90,40 @@ class PasteViewModel: PasteViewModelType {
         self.saveTextHidden.value = !save
         self.errorTextHidden.value = !error
         
+    }
+    
+    // Image saving process
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        
+        if error == nil {
+            
+            self.show(tap: false, read: false, save: true, error: false)
+            
+            self.reset()
+            
+        } else { self.error() }
+        
+    }
+    
+    // Error
+    func error() {
+        
+        self.show(tap: false, read: false, save: false, error: true)
+        
+        self.reset()
+        
+    }
+    
+    func reset() {
+        
+        Flow.delay(for: 2.5) {
+            
+            self.show(tap: true, read: false, save: false, error: false)
+            
+            self.processing = false
+        
+        }
+    
     }
     
 }

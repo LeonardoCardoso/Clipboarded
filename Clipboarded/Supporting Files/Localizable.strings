@@ -6,7 +6,10 @@
   Copyright © 2016 leocardz.com. All rights reserved.
 */
 
+Alert="Alert";
+PermissionMessage="In order to save the image on clipboard to Photos, you need to give us access to Camera Roll. :)";
+TakeMeToSettings="Take me to Settings";
 TapToPaste="Tap anywhere to paste the image on clipboard";
 ReadingClipboard="Reading clipboard";
 ImageSaved="Image saved to Photos";
-DataNotImage="Data was not an image";
+DataNotImage="Data is not an image";

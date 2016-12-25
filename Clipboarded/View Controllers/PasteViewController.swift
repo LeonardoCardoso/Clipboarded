@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 #if !RX_NO_MODULE
     import RxSwift
     import RxCocoa
@@ -30,6 +31,23 @@ class PasteViewController: BaseViewController {
         
         self.configureBindings(viewModel: viewModel)
         
+        PHPhotoLibrary
+            .requestAuthorization { status in
+                switch status {
+                case .authorized:
+                    break
+                case .restricted:
+                    self.askForPermission()
+                    break
+                case .denied:
+                    self.askForPermission()
+                    break
+                default:
+                    self.askForPermission()
+                    break
+                }
+        }
+        
     }
     
     // MARK: - ViewModel Configuration
@@ -52,7 +70,30 @@ class PasteViewController: BaseViewController {
         viewModel.saveTextHidden.asObservable().map({ $0 }).bindTo(savedLabel.rx.isHidden).addDisposableTo(self.disposeBag)
         viewModel.errorTextHidden.asObservable().map({ $0 }).bindTo(errorLabel.rx.isHidden).addDisposableTo(self.disposeBag)
         
+        viewModel.deliverPicture
+            .subscribe(
+                onNext: { [] image in
+                    
+                    pasteView.imageView?.image = image
+                    
+            }
+            ).addDisposableTo(self.disposeBag)
+        
     }
+    
+    // MARK: - Functions
+    // Ask for permission
+    func askForPermission() {
+        
+        let alert = UIAlertController(title: R.string.localizable.alert(), message: R.string.localizable.permissionMessage(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.takeMeToSettings(), style: .default, handler: { action in self.openSettings() }))
+        
+        Flow.async { self.present(alert, animated: true, completion: nil) }
+        
+    }
+    
+    // Open settings
+    func openSettings() { UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)! as URL) }
     
 }
 
