@@ -14,8 +14,6 @@ target 'Clipboarded' do
  	  pod 'Then', '2.1.0'
  	  
  	  pod 'CGFloatLiteral', '0.2.0'
- 	  
- 	  pod 'DeviceKit', '1.0.0'
     
   	pod 'RxSwift', '3.0.1'
   	pod 'RxCocoa', '3.0.1'

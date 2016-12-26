@@ -7,11 +7,6 @@
 //
 
 import UIKit
-import DeviceKit
-
-// Dimensions
-// We need to start with one dimensions set. So the most popular seems fair.
-var dm: DimensionsType = Dimensions6()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,10 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // Set Dimensions by device type
-        let dimensions: Device = Device()
-        dm = dimensions.properDimentions
         
         // Prepare window and attach TabBarViewController or SignInViewController on it
         self.window = UIWindow(frame: UIScreen.main.bounds)

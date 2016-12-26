@@ -17,13 +17,7 @@
 		985599051E0F1CD800789A00 /* PasteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599041E0F1CD800789A00 /* PasteViewModel.swift */; };
 		9855990A1E0F1E4A00789A00 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599091E0F1E4A00789A00 /* UIColorExtension.swift */; };
 		9855990D1E0F21D500789A00 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855990C1E0F21D500789A00 /* R.generated.swift */; };
-		985599131E0F21E000789A00 /* Dimensions4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855990E1E0F21E000789A00 /* Dimensions4.swift */; };
-		985599141E0F21E000789A00 /* Dimensions5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855990F1E0F21E000789A00 /* Dimensions5.swift */; };
-		985599151E0F21E000789A00 /* Dimensions6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599101E0F21E000789A00 /* Dimensions6.swift */; };
-		985599161E0F21E000789A00 /* Dimensions6P.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599111E0F21E000789A00 /* Dimensions6P.swift */; };
-		985599171E0F21E000789A00 /* DimensionsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599121E0F21E000789A00 /* DimensionsType.swift */; };
 		985599191E0F257100789A00 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985599181E0F257100789A00 /* BaseViewController.swift */; };
-		9855991B1E0F2EF000789A00 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855991A1E0F2EF000789A00 /* Device.swift */; };
 		98654CA01E1065C300A2A010 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98654C9F1E1065C300A2A010 /* Flow.swift */; };
 		98654CA41E1098F500A2A010 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98654CA31E1098F500A2A010 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
@@ -42,13 +36,7 @@
 		985599041E0F1CD800789A00 /* PasteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteViewModel.swift; sourceTree = "<group>"; };
 		985599091E0F1E4A00789A00 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		9855990C1E0F21D500789A00 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		9855990E1E0F21E000789A00 /* Dimensions4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions4.swift; sourceTree = "<group>"; };
-		9855990F1E0F21E000789A00 /* Dimensions5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions5.swift; sourceTree = "<group>"; };
-		985599101E0F21E000789A00 /* Dimensions6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions6.swift; sourceTree = "<group>"; };
-		985599111E0F21E000789A00 /* Dimensions6P.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions6P.swift; sourceTree = "<group>"; };
-		985599121E0F21E000789A00 /* DimensionsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionsType.swift; sourceTree = "<group>"; };
 		985599181E0F257100789A00 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		9855991A1E0F2EF000789A00 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		98654C9F1E1065C300A2A010 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		98654CA31E1098F500A2A010 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		A36A6E6477114CD2E4581F37 /* Pods-Clipboarded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboarded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clipboarded/Pods-Clipboarded.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +149,6 @@
 		985599061E0F1DDF00789A00 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				985599081E0F1E3B00789A00 /* Dimensions */,
 				985599071E0F1DE400789A00 /* Extensions */,
 				98654C9F1E1065C300A2A010 /* Flow.swift */,
 			);
@@ -172,22 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				985599091E0F1E4A00789A00 /* UIColorExtension.swift */,
-				9855991A1E0F2EF000789A00 /* Device.swift */,
 				98654CA31E1098F500A2A010 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		985599081E0F1E3B00789A00 /* Dimensions */ = {
-			isa = PBXGroup;
-			children = (
-				9855990E1E0F21E000789A00 /* Dimensions4.swift */,
-				9855990F1E0F21E000789A00 /* Dimensions5.swift */,
-				985599101E0F21E000789A00 /* Dimensions6.swift */,
-				985599111E0F21E000789A00 /* Dimensions6P.swift */,
-				985599121E0F21E000789A00 /* DimensionsType.swift */,
-			);
-			path = Dimensions;
 			sourceTree = "<group>";
 		};
 		9CB9506F557C43D7B1E091A9 /* Pods */ = {
@@ -338,11 +312,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9855991B1E0F2EF000789A00 /* Device.swift in Sources */,
-				985599161E0F21E000789A00 /* Dimensions6P.swift in Sources */,
 				985599051E0F1CD800789A00 /* PasteViewModel.swift in Sources */,
 				985599031E0F1CC000789A00 /* PasteView.swift in Sources */,
-				985599141E0F21E000789A00 /* Dimensions5.swift in Sources */,
 				9855990A1E0F1E4A00789A00 /* UIColorExtension.swift in Sources */,
 				985599191E0F257100789A00 /* BaseViewController.swift in Sources */,
 				98654CA01E1065C300A2A010 /* Flow.swift in Sources */,
@@ -350,9 +321,6 @@
 				980809281E0F11610092FB9F /* PasteViewController.swift in Sources */,
 				980809261E0F11610092FB9F /* AppDelegate.swift in Sources */,
 				9855990D1E0F21D500789A00 /* R.generated.swift in Sources */,
-				985599151E0F21E000789A00 /* Dimensions6.swift in Sources */,
-				985599131E0F21E000789A00 /* Dimensions4.swift in Sources */,
-				985599171E0F21E000789A00 /* DimensionsType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
