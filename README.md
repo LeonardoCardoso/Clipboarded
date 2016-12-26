@@ -4,7 +4,7 @@ Native iOS Clipboarded app.
 
 ## Idea
 
-Have you ever copied an image but couldn't find a away to save it to the Camera Roll?! That's why!
+Have you ever copied an image but couldn't find a way to save it to the Camera Roll?! That's why!
 
 ![GIF](gif.gif)
 
