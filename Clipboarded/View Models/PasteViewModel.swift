@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CGFloatLiteral
 #if !RX_NO_MODULE
     import RxSwift
     import RxCocoa
@@ -100,6 +101,8 @@ class PasteViewModel: NSObject, PasteViewModelType {
             
             self.show(tap: false, read: false, save: true, error: false)
             
+            self.deliverPicture.onNext(image.RBSquareImageTo(size: CGSize(width: 200.f, height: 200.f)))
+            
             self.reset()
             
         } else { self.error() }
@@ -124,6 +127,8 @@ class PasteViewModel: NSObject, PasteViewModelType {
             self.show(tap: true, read: false, save: false, error: false)
             
             self.pasteboardString.value = ""
+            
+            self.deliverPicture.onNext(nil)
             
             self.processing = false
         

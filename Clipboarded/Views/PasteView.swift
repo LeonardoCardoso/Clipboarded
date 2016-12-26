@@ -130,7 +130,7 @@ class PasteView: UIControl {
             
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(30)
-            make.width.equalToSuperview().inset(50)
+            make.width.equalTo(200)
             
         }
         
