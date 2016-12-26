@@ -55,6 +55,7 @@ class PasteViewController: BaseViewController {
         
         guard
             let pasteView: PasteView = self.pasteView,
+            let dataLabel: UILabel = pasteView.dataLabel,
             let initialLabel: UILabel = pasteView.initialLabel,
             let readingLabel: UILabel = pasteView.readingLabel,
             let savedLabel: UILabel = pasteView.savedLabel,
@@ -65,6 +66,7 @@ class PasteViewController: BaseViewController {
         pasteView.rx.controlEvent(.touchUpInside).bindNext({ viewModel.tapAction.onNext() }).addDisposableTo(self.disposeBag)
         
         // Output
+        viewModel.pasteboardString.asObservable().map({ $0 }).bindTo(dataLabel.rx.text).addDisposableTo(self.disposeBag)
         viewModel.tapTextHidden.asObservable().map({ $0 }).bindTo(initialLabel.rx.isHidden).addDisposableTo(self.disposeBag)
         viewModel.readTextHidden.asObservable().map({ $0 }).bindTo(readingLabel.rx.isHidden).addDisposableTo(self.disposeBag)
         viewModel.saveTextHidden.asObservable().map({ $0 }).bindTo(savedLabel.rx.isHidden).addDisposableTo(self.disposeBag)

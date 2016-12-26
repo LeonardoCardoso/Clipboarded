@@ -21,6 +21,7 @@ class PasteView: UIControl {
     
     // MARK: - Properties
     var imageView: UIImageView?
+    var dataLabel: UILabel?
     var initialLabel: UILabel?
     var readingLabel: UILabel?
     var savedLabel: UILabel?
@@ -36,6 +37,7 @@ class PasteView: UIControl {
         self.configureSubviews()
         
         if let view: UIImageView = self.imageView { self.addSubview(view) }
+        if let view: UILabel = self.dataLabel { self.addSubview(view) }
         if let view: UILabel = self.initialLabel { self.addSubview(view) }
         if let view: UILabel = self.readingLabel { self.addSubview(view) }
         if let view: UILabel = self.savedLabel { self.addSubview(view) }
@@ -54,6 +56,15 @@ class PasteView: UIControl {
         self.imageView = UIImageView().then {
             
             $0.backgroundColor = .clear
+            
+        }
+        
+        self.dataLabel = UILabel().then {
+            
+            $0.textColor = .white
+            $0.numberOfLines = 1
+            $0.textAlignment = .center
+            $0.font = .systemFont(ofSize: 20.f)
             
         }
         
@@ -117,9 +128,19 @@ class PasteView: UIControl {
         
         self.imageView?.snp.makeConstraints { (make) -> Void in
             
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(30)
             make.width.equalToSuperview().inset(50)
+            
+        }
         
+        self.dataLabel?.snp.makeConstraints { (make) -> Void in
+            
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(30)
+            make.width.equalToSuperview().inset(50)
+            make.height.equalTo(40)
+            
         }
         
         self.initialLabel?.snp.makeConstraints { (make) -> Void in self.commonConstraints(make) }

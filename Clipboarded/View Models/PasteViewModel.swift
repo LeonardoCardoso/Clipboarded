@@ -18,6 +18,7 @@ protocol PasteViewModelType {
     var tapAction: PublishSubject<Void> { get }
     
     // MARK: - Output
+    var pasteboardString: Variable<String> { get }
     var tapTextHidden: Variable<Bool> { get }
     var readTextHidden: Variable<Bool> { get }
     var errorTextHidden: Variable<Bool> { get }
@@ -33,6 +34,7 @@ class PasteViewModel: NSObject, PasteViewModelType {
     
     // MARK: - Properties
     private var processing: Bool = false
+    private let pasteboard: UIPasteboard = UIPasteboard.general
     
     // MARK: - Rx
     private let disposeBag: DisposeBag = DisposeBag()
@@ -41,6 +43,7 @@ class PasteViewModel: NSObject, PasteViewModelType {
     var tapAction: PublishSubject<Void> = PublishSubject<Void>()
     
     // MARK: - Output
+    var pasteboardString: Variable<String> = Variable("")
     var tapTextHidden: Variable<Bool> = Variable(false)
     var readTextHidden: Variable<Bool> = Variable(true)
     var errorTextHidden: Variable<Bool> = Variable(true)
@@ -64,9 +67,7 @@ class PasteViewModel: NSObject, PasteViewModelType {
                         
                         Flow.async {
                             
-                            let pasteboard: UIPasteboard = UIPasteboard.general
-                            
-                            if let image: UIImage = pasteboard.image {
+                            if let image: UIImage = self.pasteboard.image {
                                 
                                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
                                 
@@ -110,6 +111,8 @@ class PasteViewModel: NSObject, PasteViewModelType {
         
         self.show(tap: false, read: false, save: false, error: true)
         
+        if let string: String = self.pasteboard.string { self.pasteboardString.value = string }
+        
         self.reset()
         
     }
@@ -119,6 +122,8 @@ class PasteViewModel: NSObject, PasteViewModelType {
         Flow.delay(for: 2.5) {
             
             self.show(tap: true, read: false, save: false, error: false)
+            
+            self.pasteboardString.value = ""
             
             self.processing = false
         
